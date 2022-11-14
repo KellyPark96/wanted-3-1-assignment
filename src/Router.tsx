@@ -3,7 +3,7 @@ import React from 'react';
 const Router = () => {
     return (
         <div>
-            <div>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</div>
+            <div>Router</div>
         </div>
     );
 };
