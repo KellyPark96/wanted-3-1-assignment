@@ -7,16 +7,39 @@
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
+    "airbnb",
+    "airbnb/hooks",
     "airbnb-typescript",
     "prettier"
   ],
-  "plugins": ["react", "@typescript-eslint"],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module",
+    "project": "./tsconfig.json"
+  },
+  "plugins": [
+    "react",
+    "@typescript-eslint"
+  ],
   "rules": {
     "no-var": "error", // var 금지
     "no-multiple-empty-lines": "error", // 여러 줄 공백 금지
-    "no-console": ["warn", { "allow": ["warn", "error", "info"] }], // console.log() 금지
+    "no-console": [
+      "warn",
+      {
+        "allow": [
+          "warn",
+          "error",
+          "info"
+        ]
+      }
+    ], // console.log() 금지
     "eqeqeq": "error", // 일치 연산자 사용 필수
-    "dot-notation": 0, // 가능하다면 dot notation 사용
+    "dot-notation": "error", // 가능하다면 dot notation 사용
     "linebreak-style": 0, // CRLF 에러
     "react/function-component-definition": 0, // 함수형 컴포넌트 화살표함수사용 가능
     "comma-dangle": 0,
@@ -28,7 +51,14 @@
     "react/jsx-props-no-spreading": 0,
     "react/jsx-filename-extension": [
       1,
-      { "extensions": [".js", ".jsx", "ts", "tsx"] }
+      {
+        "extensions": [
+          ".js",
+          ".jsx",
+          "ts",
+          "tsx"
+        ]
+      }
     ],
     "react/react-in-jsx-scope": 0,
     "object-curly-newline": 0,
@@ -42,6 +72,9 @@
     "react-hooks/exhaustive-deps": 0,
     "@typescript-eslint/no-explicit-any": 0,
     "no-plusplus": 0,
-    "prefer-const": 0
+    "prefer-const": 0,
+    "@typescript-eslint/no-unused-expressions": 0,
+    "import/prefer-default-export": 0,
+    "@typescript-eslint/no-non-null-assertion": 0
   }
 }
