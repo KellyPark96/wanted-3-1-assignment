@@ -20,19 +20,22 @@ const Form = styled.form`
     font-size: 1.2rem;
     margin-left: 1rem;
   }
-  button {
-    flex: 1 1 10%;
-    height: 100%;
-    background-color: ${(props) => props.theme.colors.blue};
-    color: white;
-    border: none;
-    font-size: 1.1rem;
-    font-weight: bold;
-    cursor: pointer;
-  }
+`;
+
+const Wrapper = styled.div`
+  width: 100%;
+  height: 100%;
+  max-height: 20rem;
+  padding: 1rem 0;
+  background-color: white;
+  border-radius: 1.5rem;
+  font-size: 0.8rem;
+  margin-top: 1rem;
+  overflow-y: auto;
 `;
 
 const S = {
     Form,
+    Wrapper
 };
 export default S;

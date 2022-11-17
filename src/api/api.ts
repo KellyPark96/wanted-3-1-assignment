@@ -1,10 +1,20 @@
-import axios from "axios";
+import axios, {AxiosInstance} from "axios";
 
-export const HttpClient = axios.create({
-    baseURL: process.env.REACT_APP_BASE_URL,
-    timeout: 2 * 1000,
-    headers: {
-        "Content-type": "application/json",
+// create an axios instance
+export default class HttpClient {
+    httpClient: AxiosInstance;
+
+    constructor(private baseUrl: string) {
+        this.httpClient = axios.create({
+            baseURL: process.env.REACT_APP_BASE_URL,
+            headers: {
+                'Content-Type': 'application/json',
+                'Cache-Control': 'no-cache'
+            },
+            withCredentials : true,
+            timeout: 1000,
+        });
     }
-})
+}
 
+export const DEBOUNCING_TIME = 500;

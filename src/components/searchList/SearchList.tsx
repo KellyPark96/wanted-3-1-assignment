@@ -1,33 +1,42 @@
 import React from 'react';
 import S from "./styles";
+import SearchItem from "../searchItem/SearchItem";
 
 interface SearchListProps {
-    title: string;
+    title: string,
+    hasNoSuggestions: boolean,
+    searchResult: Array<any>,
+    debouncedQuery: string,
 }
 
-const SearchList = ({ title }: SearchListProps) => {
+const SearchList = ({title, hasNoSuggestions, searchResult, debouncedQuery}: SearchListProps) => {
+    console.log(title, hasNoSuggestions, searchResult, debouncedQuery);
     return (
         <S.List>
-            <h3>추천 검색어</h3>
-            {/* {IS_EMPTRY ? ( */}
-            {/* ) : ( */}
-            {/* <> */}
-            {/* <h3>{title}</h3>
-                {list.map((item, idx) => (
+            {hasNoSuggestions ? (
+                <h3>검색어 없음</h3>
+            ) : (
+                searchResult.map((item, index) => (
                     <SearchItem
                         key={item.sickCd}
-                        text={item.sickNm}
-                        active={cursor === idx}
-                        isMovingMouse={isMovingMouse}
-                        setIsMovingMouse={setIsMovingMouse}
-                        setCursor={setCursor}
-                        index={idx}
-                    />
-                ))} */}
-            {/* </> */}
-            {/* )} */}
+                        sickNm={item.sickNm}
+                        target={item.debouncedQuery}/>
+                ))
+            )}
         </S.List>
     );
 };
 
 export default SearchList;
+
+// {list.map((item, idx) => (
+//     <SearchItem
+//         key={item.sickCd}
+//         text={item.sickNm}
+//         active={cursor === idx}
+//         isMovingMouse={isMovingMouse}
+//         setIsMovingMouse={setIsMovingMouse}
+//         setCursor={setCursor}
+//         index={idx}
+//     />
+// ))}
