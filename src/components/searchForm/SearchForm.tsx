@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react';
 import {useNavigate} from 'react-router';
-import {useQueryString} from 'hooks/useQueryString';
 import S from "./styles";
 import {SickDataType} from "../../types/Types";
 import useHandleInput from '../../hooks/useHandleInput';
@@ -13,7 +12,6 @@ const client = new HttpClient(process.env.REACT_APP_BASE_URL || '');
 const searchService = new SearchServiceImpl(client.httpClient);
 
 const SearchForm = () => {
-    const query = useQueryString();
     const navigate = useNavigate();
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
