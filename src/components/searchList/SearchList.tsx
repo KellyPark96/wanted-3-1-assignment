@@ -1,16 +1,18 @@
-import React from 'react';
-import S from "./styles";
+import {MouseEvent} from "react";
 import SearchItem from "../searchItem/SearchItem";
+import useHandleInput from '../../hooks/useHandleInput';
+import S from "./styles";
 
 interface SearchListProps {
-    title: string,
     hasNoSuggestions: boolean,
     searchResult: Array<any>,
     debouncedQuery: string,
+    selectedIndex: number,
 }
 
-const SearchList = ({title, hasNoSuggestions, searchResult, debouncedQuery}: SearchListProps) => {
-    console.log(title, hasNoSuggestions, searchResult, debouncedQuery);
+const SearchList = ({hasNoSuggestions, searchResult, debouncedQuery, selectedIndex}: SearchListProps) => {
+    const {goToSuggestion} = useHandleInput(searchResult);
+
     return (
         <S.List>
             {hasNoSuggestions ? (
@@ -20,7 +22,12 @@ const SearchList = ({title, hasNoSuggestions, searchResult, debouncedQuery}: Sea
                     <SearchItem
                         key={item.sickCd}
                         sickNm={item.sickNm}
-                        target={item.debouncedQuery}/>
+                        target={debouncedQuery}
+                        isSelected={index === selectedIndex}
+                        handleOnClick={(event: any) =>
+                            goToSuggestion(event, searchResult[index].sickNm)
+                        }
+                    />
                 ))
             )}
         </S.List>

@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react';
-import {useNavigate} from 'react-router';
 import S from "./styles";
 import {SickDataType} from "../../types/Types";
 import useHandleInput from '../../hooks/useHandleInput';
@@ -12,8 +11,6 @@ const client = new HttpClient(process.env.REACT_APP_BASE_URL || '');
 const searchService = new SearchServiceImpl(client.httpClient);
 
 const SearchForm = () => {
-    const navigate = useNavigate();
-
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
     };
@@ -28,19 +25,18 @@ const SearchForm = () => {
 
     // hooks
     const {
-        // handleKeyDown,
+        handleKeyDown,
         handleOnFocus,
         handleOnBlur,
-        // selectedIndex,
         isSearching,
-        // goToSuggestion,
-        // resetIndex,
+        selectedIndex,
+        resetIndex,
         inputRef,
     } = useHandleInput(searchResult);
 
     const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setInput(e.target.value);
-        console.log(e.target.value);
+        resetIndex();
         setSearchResult([]);
     }
 
@@ -67,14 +63,14 @@ const SearchForm = () => {
                     onFocus={handleOnFocus}
                     onBlur={handleOnBlur}
                     ref={inputRef}
-                    // onKeyDown={e => handleKeyDown(e)}
+                    onKeyDown={e => handleKeyDown(e)}
                 />
             </S.Form>
             <S.Wrapper>
                 {isSearching && (
                     <SearchList
+                        selectedIndex={selectedIndex}
                         searchResult={searchResult}
-                        title="추천 검색어"
                         hasNoSuggestions={hasNoSuggestions}
                         debouncedQuery={debouncedQuery}/>
                 )}

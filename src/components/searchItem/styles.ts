@@ -5,12 +5,14 @@ const Wrapper = styled.li`
   padding: 0.5rem 1.5rem;
   font-size: 0.9rem;
   transition: all ease-in 100ms;
-  background-color: ${(props) => props.theme.colors.lightGrey};
   svg {
     margin-right: 1rem;
     color: ${(props) => props.theme.colors.grey};
   }
   &:hover {
+    background-color: ${(props) => props.theme.colors.lightGrey};
+  }
+  &.selected {
     background-color: ${(props) => props.theme.colors.lightGrey};
   }
   b {

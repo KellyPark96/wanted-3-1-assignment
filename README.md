@@ -2,6 +2,18 @@
 
 [https://github.com/walking-sunset/assignment-api_7th)
 
+```
+npm install
+npm start
+localhost:4000 으로 api 연동
+```
+
+### **프로젝트 실행**
+```
+npm install
+npm start
+```
+
 ### **폴더구조**
 ```
 src
@@ -53,59 +65,82 @@ src
 REACT_APP_BASE_URL=http://localhost:4000/sick
 ```
 
-[//]: # ()
 [//]: # (### 텍스트 볼드처리)
 
 [//]: # ()
 [//]: # (```tsx)
 
+[//]: # ()
 [//]: # (const SuggestionDropdown = &#40;{)
 
+[//]: # ()
 [//]: # (  sickNm,)
 
+[//]: # ()
 [//]: # (  target,)
 
+[//]: # ()
 [//]: # (  isSelected,)
 
+[//]: # ()
 [//]: # (  handleOnClick,)
 
+[//]: # ()
 [//]: # (}: Props&#41; => {)
 
+[//]: # ()
 [//]: # (  const index = sickNm.indexOf&#40;target&#41;;)
 
+[//]: # ()
 [//]: # (  const endIndex = index + target.length;)
 
+[//]: # ()
 [//]: # (  const prev = sickNm.slice&#40;0, index&#41;;)
 
+[//]: # ()
 [//]: # (  const next = sickNm.slice&#40;endIndex&#41;;)
 
+[//]: # ()
 [//]: # (  return &#40;)
 
+[//]: # ()
 [//]: # (    <li className={isSelected ? 'selected' : ''} onClick={handleOnClick}>)
 
+[//]: # ()
 [//]: # (      {prev})
 
+[//]: # ()
 [//]: # (      <BoldText>{target}</BoldText>)
 
+[//]: # ()
 [//]: # (      {next})
 
+[//]: # ()
 [//]: # (    </li>)
 
+[//]: # ()
 [//]: # (  &#41;;)
 
+[//]: # ()
 [//]: # (};)
 
+[//]: # ()
 [//]: # (```)
 
 [//]: # ()
+[//]: # ()
 [//]: # (- 일치하는 타겟이 존재하면 그 부분을 볼드처리하는 방식으로 해결했습니다.)
 
+[//]: # ()
 [//]: # (    - 텍스트가 발견되었을때)
 
+[//]: # ()
 [//]: # (        - 발견된 텍스트를 볼드처리합니다.)
 
+[//]: # ()
 [//]: # (    - 텍스트가 발견되지 않았을대)
 
+[//]: # ()
 [//]: # (        - 원본 문자열을 그대로 반환합니다.)
 
 [//]: # ()
